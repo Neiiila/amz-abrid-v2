@@ -104,28 +104,28 @@
                         <form action="#" method="post">
                             {% csrf_token %}
                             <input type="text" class="custom-select date" placeholder="Depart" id="depart" name="depart">
-                            <input type="text" class="custom-select date" placeholder="Destination" id="destination" name="destinations" onblur="choisir_hotel()">
+                            <input type="text" class="custom-select date" placeholder="Destination" id="destination" name="destination" onblur="choisir_hotel()">
                             <input type="text" class="custom-select date" placeholder="Date debut" id="date_debut" name="date_debut" onfocus="(this.type='date')" />
                             <input type="text" class="custom-select date" placeholder="Date fin" id="date_fin" name="date_fin" onfocus="(this.type='date')" />
                             
-                            <button type="submit"  class="btn dorne-btn mt-50 bg-white text-dark"><i class=" pr-2" aria-hidden="true"> </i> Suivant</button>
+                           <!-- <button class="btn dorne-btn mt-50 bg-white text-dark" onclick="go_to_transport()"><i class=" pr-2" aria-hidden="true"> </i> Suivant</button>
 
-                        </form>
+                         </form>-->
                     </div>
 
             <!-- *********** Form Transport *********** -->
                     <div class="tab-pane fade" id="nav-transport" role="tabpanel" aria-labelledby="nav-transport-tab">
-                        <form action="#" method="post">
-                            {% csrf_token %}
-                            <select class="custom-select" id="transport" onchange="choisir_transport()">
+                        <!--<form action="#" method="post">
+                            {% csrf_token %}-->
+                            <select class="custom-select extra-style" id="transport" onchange="choisir_transport()">
                                 <option selected value="">choisissez moyen de transport </option>
                                 <option value="Avion">Avion</option>
                                 <option value="Auto Car">Auto car</option>
                                 <option value="Train">Train</option>
                                 <option value="Bateau">Bateau</option>
                             </select>   
-                            <select class="custom-select" id="entreprise">
-                                <option selected value="">Avec quelle entreprise  </option>
+                            <select class="custom-select extra-style" name="transport" id="entreprise">
+                                <option selected value="" >Avec quelle entreprise  </option>
                             </select>       
                             <div>
                                 <div class="col-12 col-xl-6">
@@ -136,17 +136,16 @@
                                     </label>
                                 </div>
                             </div>               
-                            <button  class="btn dorne-btn mt-50 bg-white text-dark" ><i class=" pr-2" aria-hidden="true"> > </i> Suivant</button>
+                            <!--  <button  class="btn dorne-btn mt-50 bg-white text-dark" ><i class=" pr-2" aria-hidden="true"> > </i> Suivant</button>
 
-                        </form>
+                      </form>-->
                     </div>
 
         <!-- *********** Form Hotel *********** -->
                     <div class="tab-pane fade" id="nav-events" role="tabpanel" aria-labelledby="nav-events-tab">
-                        <form>
-                            {% csrf_token %}
-                            <select class="custom-select" name="hotel" id="hotel" >
-                                <option selected>choisissez votre hotel</option>
+                       <!-- <form method="post">-->
+                            <select class="custom-select extra-style" name="hotel" id="hotel" >
+                                <option value="" selected>choisissez votre hotel</option>
                             </select>            
                             <div>
                                 <div class="col-12 col-xl-6">
@@ -156,14 +155,9 @@
                                         <span class="custom-control-description">Restauration</span>
                                     </label>
                                 </div>
-                                <div class="col-12 col-xl-6">
-                                    <label class="custom-control custom-checkbox mb-3">
-                                        <input type="checkbox" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                    </label>
-                                </div>
+                                
                             </div>               
-                            <button  class="btn dorne-btn mt-50 bg-white text-dark" onclick="reserver()"><i class=" pr-2" aria-hidden="true"> > </i> Suivant</button>
+                            <button type="submit" class="btn dorne-btn mt-50 bg-white text-dark" >Suivant</button>
 
                         </form>
                     </div>
@@ -193,6 +187,7 @@
         choice = data.filter(tran => {
             return tran.type === type
         })
+
         menu = document.getElementById('entreprise')
         nettoyer_select(menu);
         choice.forEach(element => {
@@ -221,27 +216,7 @@
                 menu.appendChild(option);
         });
         }
-        
-        function reserver() {
-            alert('hello')
-            $.ajax({
-                    type: "GET",
-                    url: '/js_to_django',
-                    data: {
-                        "result": result,
-                    },
-                    dataType: "json",
-                    success: function (data) {
-                        // any process in data
-                        alert("successfull")
-                    },
-                    failure: function () {
-                        alert("failure");
-                    }
-            });
-        }
-    //
-    
+     
     
 </script>
 

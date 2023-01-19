@@ -8,3 +8,4 @@ from .models import *
 admin.site.register(Voyage)
 admin.site.register(Transport)
 admin.site.register(Hotel)
+admin.site.register(Reservation)

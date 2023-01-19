@@ -154,7 +154,7 @@ img {
 }
 
 .mt-50 {
-    margin-top: 50px;
+    margin-top: 10px;
 }
 
 .mt-100 {
@@ -1078,6 +1078,7 @@ li {
 .explore-search-result {
     width: 78%;
     margin: auto;
+    height: 548px;
 }
 
 .explore-search-form {
@@ -1404,4 +1405,17 @@ li {
 #locationMap {
     width: 100%;
     height: 380px;
+}
+
+.extra-style{
+    height: 52px;
+    border-radius: 0 ;
+    padding: 0 80px 0 40px;
+    color: #72728c;
+    font-size: 12px;
+    font-weight: 600;
+    border: none;
+    margin-bottom: 30px;
+    margin-right: 47px;
+    width: 373px;
 }
